@@ -4,13 +4,17 @@ django-private-media
 
 Overview
 --------
-By default, Django lets you specify a MEDIA_ROOT where your user-uploaded media is placed.  It is accessible to all at the MEDIA_URL.
+By default, Django lets you specify a MEDIA_ROOT where your user (or admin)-uploaded media is placed.  It is accessible to all at the MEDIA_URL.
 
 Using django-private-media, you can also specify a PRIVATE_MEDIA_ROOT and PRIVATE_MEDIA_URL.  Private files or images are uploaded using the provided PrivateMediaStorage() storage class.  They are served by a view which checks the user's authorization before serving them.
 
 Currently there are only two options for serving them, a default server useful for development, and Apache's XSendFile.  Setting up XSendFile at Webfaction (for example) is covered `here <http://community.webfaction.com/questions/12205/serving-static-files-with-django-using-xsendfile>`_.  By adapting code from Stephan Foulis's django-filer it would be easy to add an nginx server.
 
-Note that you should be able to apply to this to existing projects without changing anything in the database; you only need to make sure your media files are relocated from the MEDIA_ROOT to the PRIVATE_MEDIA_ROOT.
+Motivation
+----------
+I have long wanted the capability for user uploads to be private, but couldn't find a guide to set it up.  When I looked into django-filer's approach to secure file downloads I finally understood how it could be done; however, I have an existing project and do not want to adopt the full functionality of django-filer.
+
+So one of my goals in writing this is to be able to apply it to existing projects without any data migrations; you only need to make sure your media files are relocated from the MEDIA_ROOT to the PRIVATE_MEDIA_ROOT.
 
 Attribution
 -----------
