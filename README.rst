@@ -10,9 +10,12 @@ Using django-private-media, you can also specify a PRIVATE_MEDIA_ROOT and PRIVAT
 
 Currently there are only two options for serving them, a default server useful for development, and Apache's XSendFile.  Setting up XSendFile at Webfaction (for example) is covered `here <http://community.webfaction.com/questions/12205/serving-static-files-with-django-using-xsendfile>`_.  By adapting code from Stephan Foulis's django-filer it would be easy to add an nginx server.
 
+Note that you should be able to apply to this to existing projects without changing anything in the database; you only need to make sure your media files are relocated from the MEDIA_ROOT to the PRIVATE_MEDIA_ROOT.
+
 Attribution
 -----------
-Key parts of this code are based on code by Stephan Foulis and contributors from django-filer.
+Key parts of this code are based on code by Stephan Foulis and contributors from 
+`django-filer <https://github.com/stefanfoulis/django-filer>`_.
 
 Caveats
 -------
@@ -62,6 +65,7 @@ Add to your `INSTALLED_APPS`::
 
 
 Add to `urls.py`::
+
        ...
        url(r'^', include('private_media.urls')),
 
