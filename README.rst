@@ -14,7 +14,7 @@ Motivation
 ----------
 I have long wanted the capability for user uploads to be private, but couldn't find a guide to set it up.  When I looked into django-filer's approach to secure file downloads I finally understood how it could be done; however, I have an existing project and do not want to adopt the full functionality of django-filer.
 
-So one of my goals in writing this is to be able to apply it to existing projects without any data migrations; you only need to make sure your media files are relocated from the MEDIA_ROOT to the PRIVATE_MEDIA_ROOT.
+I also wanted to be able to apply it to existing projects without any data migrations; with it, you only need to make sure your media files are relocated from the MEDIA_ROOT to the PRIVATE_MEDIA_ROOT.
 
 Attribution
 -----------
