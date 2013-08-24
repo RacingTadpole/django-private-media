@@ -116,13 +116,11 @@ And then provide a permissioning class like this (which lets staff and the owner
                 return True
             else:
                 try:
-                    owner_pk = int(os.path.split(os.path.split(z)[0])[1])
+                    owner_pk = int(os.path.split(os.path.split(path)[0])[1])
                 except ValueError:
                     raise Http404('File not found')
                 return (user.pk==owner_pk)
 
-Caveat - I have not tested this yet, and exposing users' primary keys is potentially insecure.
-
-Detailed documentation is in the "docs" directory (pending).
+Detailed documentation is provided at `<http://racingtadpole.com/blog/private-media-with-django/>`_ and in the "docs" directory (pending).
 
 
