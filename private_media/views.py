@@ -15,6 +15,7 @@ def get_class(import_path=None):
     """
     Largely based on django.core.files.storage's get_storage_class
     """
+    from django.core.exceptions import ImproperlyConfigured
     if import_path is None:
         raise ImproperlyConfigured('No class path specified.')
     try:
