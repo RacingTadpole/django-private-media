@@ -27,7 +27,7 @@ Although it works satisfactorily for my purposes so far, this is not a finished 
 
 Requirements
 --------------
-Django 1.4 or later.
+Django 1.5 or later.
 
 Quick start
 -----------

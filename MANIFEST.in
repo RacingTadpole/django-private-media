@@ -1,4 +1,4 @@
 include LICENSE
 include CHANGES
-include README.rst
+include README.txt
 recursive-include docs *

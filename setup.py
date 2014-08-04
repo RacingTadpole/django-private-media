@@ -1,18 +1,18 @@
 import os
 from setuptools import setup, find_packages
 
-README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+README = open(os.path.join(os.path.dirname(__file__), 'README.txt')).read()
 
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name = 'django-private-media',
-    version = '0.1.2',
+    version = '0.1.3',
     packages = find_packages(),
     include_package_data = True,
     license = 'BSD License',
-    description = """Private media for Django. Check the user's authorization before serving files at PRIVATE_MEDIA_URL, uploaded to PRIVATE_MEDIA_ROOT.""",
+    description = """Private media for Django. Check the user's authorization before serving files at PRIVATE_MEDIA_URL, uploaded to PRIVATE_MEDIA_ROOT. Requires Django 1.5.""",
     long_description = README,
     keywords = "private media xsendfile",
     url = 'https://github.com/RacingTadpole/django-private-media',

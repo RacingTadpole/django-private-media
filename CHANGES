@@ -5,3 +5,8 @@ Minor changes to documentation
 0.1.2
 -----
 Added missing import ImproperlyConfigured
+
+0.1.3
+-----
+Changed mimetype to content_type to work with Django 1.7
+

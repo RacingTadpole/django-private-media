@@ -44,11 +44,11 @@ class DefaultServer(object):
             raise Http404('"{0}" does not exist'.format(fullpath))
         # Respect the If-Modified-Since header.
         statobj = os.stat(fullpath)
-        mimetype = mimetypes.guess_type(fullpath)[0] or 'application/octet-stream'
+        content_type = mimetypes.guess_type(fullpath)[0] or 'application/octet-stream'
         if not was_modified_since(request.META.get('HTTP_IF_MODIFIED_SINCE'),
                                   statobj[stat.ST_MTIME], statobj[stat.ST_SIZE]):
-            return HttpResponseNotModified(mimetype=mimetype)
-        response = HttpResponse(open(fullpath, 'rb').read(), mimetype=mimetype)
+            return HttpResponseNotModified(content_type=content_type)
+        response = HttpResponse(open(fullpath, 'rb').read(), content_type=content_type)
         response["Last-Modified"] = http_date(statobj[stat.ST_MTIME])
         # filename = os.path.basename(path)
         # response['Content-Disposition'] = smart_str(u'attachment; filename={0}'.format(filename))
