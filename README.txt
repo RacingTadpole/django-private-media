@@ -8,7 +8,7 @@ By default, Django lets you specify a MEDIA_ROOT where your user (or admin)-uplo
 
 Using django-private-media, you can also specify a PRIVATE_MEDIA_ROOT and PRIVATE_MEDIA_URL.  Private files or images are uploaded using the provided PrivateMediaStorage() storage class.  They are served by a view which checks the user's authorization before serving them.
 
-Currently there are only two options for serving them, a default server useful for development, and Apache's XSendFile.  Setting up XSendFile at Webfaction (for example) is covered `here <http://community.webfaction.com/questions/12205/serving-static-files-with-django-using-xsendfile>`_.  By adapting code from Stephan Foulis's django-filer it would be easy to add an nginx server.
+There are now three options for serving them, a default server useful for development, Apache's XSendFile, and nginx.  Setting up XSendFile at Webfaction (for example) is covered `here <http://community.webfaction.com/questions/12205/serving-static-files-with-django-using-xsendfile>`_.  By adapting code from Stephan Foulis's django-filer it would be easy to add an nginx server.
 
 Motivation
 ----------
@@ -121,6 +121,6 @@ And then provide a permissioning class like this (which lets staff and the owner
                     raise Http404('File not found')
                 return (user.pk==owner_pk)
 
-Detailed documentation is provided at `<http://racingtadpole.com/blog/private-media-with-django/>`_ and in the "docs" directory (pending).
+Detailed documentation is provided at `<http://racingtadpole.com/blog/private-media-with-django>`_ and in the "docs" directory (pending).
 
 
