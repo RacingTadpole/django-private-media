@@ -1,9 +1,17 @@
 #-*- coding: utf-8 -*-
 from django.http import HttpResponse
-from django.utils.encoding import smart_str
 from django.conf import settings
 import mimetypes
 import os
+
+
+class NginxXAccelRedirectServer(object):
+    def serve(self, request, path):
+        response = HttpResponse()
+        fullpath = os.path.join(settings.PRIVATE_MEDIA_ROOT, path)
+        response['X-Accel-Redirect'] = fullpath
+        response['Content-Type'] = mimetypes.guess_type(path)[0] or 'application/octet-stream'
+        return response
 
 
 class ApacheXSendfileServer(object):
