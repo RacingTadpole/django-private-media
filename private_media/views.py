@@ -9,7 +9,7 @@ from . import servers
 import logging
 logger = logging.getLogger(__name__)
 
-from django.utils.importlib import import_module
+from importlib import import_module
 
 def get_class(import_path=None):
     """
